@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Sr5Heng001Application {
+public class SpringPosApiV1Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Sr5Heng001Application.class, args);
+		SpringApplication.run(SpringPosApiV1Application.class, args);
 	}
 
 }

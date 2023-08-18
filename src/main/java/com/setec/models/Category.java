@@ -2,6 +2,8 @@ package com.setec.models;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -20,9 +22,11 @@ public class Category {
 	}
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
 	private int id;
-	@Column(name = "name",unique = true, nullable = true)
+	@Column(name = "name",unique = true, nullable = false, length = 100)
 	private String name;
+	@JsonIgnore
 	@OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
 	private List<Product> products;
 	public int getId() {
@@ -42,6 +46,11 @@ public class Category {
 	}
 	public void setProducts(List<Product> products) {
 		this.products = products;
+	}
+	
+	@Override
+	public String toString() {
+		return "Category [id=" + id + ", name=" + name + ", products=" + products + "]";
 	}
 	
 }
