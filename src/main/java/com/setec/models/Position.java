@@ -20,7 +20,7 @@ public class Position {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private int id;
-	@Column(name = "positionName", nullable = true, length = 100)
+	@Column(name = "positionName",unique = true, nullable = true, length = 100)
 	private String positionName;
 	@JsonIgnore
 	@OneToMany(mappedBy = "position", cascade = CascadeType.ALL)
