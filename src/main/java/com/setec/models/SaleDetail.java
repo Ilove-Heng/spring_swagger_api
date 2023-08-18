@@ -33,4 +33,49 @@ public class SaleDetail {
 	private double price;
 	@Column(name = "amount", nullable = true)
 	private double amount;
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public Product getProduct() {
+		return product;
+	}
+	public void setProduct(Product product) {
+		this.product = product;
+	}
+	public Sale getSale() {
+		return sale;
+	}
+	public void setSale(Sale sale) {
+		this.sale = sale;
+	}
+	public int getQty() {
+		return qty;
+	}
+	public void setQty(int qty) {
+		this.qty = qty;
+	}
+	public double getPrice() {
+		return price;
+	}
+	public void setPrice(double price) {
+		this.price = price;
+	}
+	public double getAmount() {
+		return amount;
+	}
+	public void setAmount(double amount) {
+		this.amount = amount;
+	}
+	@Override
+	public String toString() {
+		return "SaleDetail [id=" + id + ", product=" + product + ", sale=" + sale + ", qty=" + qty + ", price=" + price
+				+ ", amount=" + amount + ", getId()=" + getId() + ", getProduct()=" + getProduct() + ", getSale()="
+				+ getSale() + ", getQty()=" + getQty() + ", getPrice()=" + getPrice() + ", getAmount()=" + getAmount()
+				+ ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString()
+				+ "]";
+	}
+	
 }
