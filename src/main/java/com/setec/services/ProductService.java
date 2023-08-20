@@ -60,5 +60,23 @@ public class ProductService {
 		productRepository.save(product);
 		return new ResponseEntity<Object>("Product created", HttpStatus.CREATED);
 	}
+
+	public ResponseEntity<Object> deleteProductById(Integer id) {
+		Product product = productRepository.findProductById(id);
+		if(product == null) {
+			throw new RuntimeException("Product not found for id :" + id);
+		}
+		productRepository.delete(product);
+		return new ResponseEntity<Object>("Product deleted :" + id, HttpStatus.OK);
+	}
+
+	public ResponseEntity<Object> updateProductById(Product product) {
+		Product productById = productRepository.findProductById(product.getId());
+		if(productById == null) {
+			throw new RuntimeException("No found id :" + product.getId());
+		}
+		productRepository.save(product);
+		return new ResponseEntity<Object>("Product updated" ,HttpStatus.OK);
+	}
 	
 }

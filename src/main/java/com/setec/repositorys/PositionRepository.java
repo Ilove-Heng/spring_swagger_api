@@ -8,4 +8,6 @@ import com.setec.models.Position;
 
 public interface PositionRepository extends JpaRepository<Position, Integer> {
 
+	Position findPositionById(Integer id);
+
 }

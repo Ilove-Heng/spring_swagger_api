@@ -29,6 +29,25 @@ public class PositionService {
 		return positionRepository.findById(id).get();
 	}
 
+	public ResponseEntity<Object> deletePositionById(Integer id) {
+		Position position = positionRepository.findPositionById(id);
+		if(position == null) {
+			throw new RuntimeException("Position not found for id :" + id);
+		}
+		positionRepository.delete(position);
+		return new ResponseEntity<Object>("Position deleted :" + id, HttpStatus.OK);
+	}
+
+	public ResponseEntity<Object> updatePositionById(Position position) {
+		Position positionById = positionRepository.findPositionById(position.getId());
+		
+		if(positionById == null) {
+			throw new RuntimeException("No found id :" + position.getId());
+		}
+		positionRepository.save(position);
+		return new ResponseEntity<Object>("Position updated" ,HttpStatus.OK);
+	}
+
 	
 
 }
